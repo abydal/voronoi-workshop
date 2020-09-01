@@ -4,13 +4,17 @@ Velkommen til Voronoi workshop! Her skal du gå gjennom en av de enkleste måten
 
 Et Voronoi mønster kan forklares slik:
 
-- Gitt et sett T med tilfedlig spredde punkter på et 2d plan
+- Gitt et sett T med tilfeldig spredde punkter på et 2d plan
 - Alle punkter i planet får en tilhørighet til sitt nærmeste punkt fra settet T.
 - Vi kan visualisere dette ved å sette en farge på et piksel basert på hvilke punkt pikselet hører til.
 
+Du kan skrive all koden din i `voronoi.js`
+
 ### Lykke Til! :rocket:
 
-`index.html`inneholder boilerplate for å sette opp et canvas som vi kan bruke til å tegne på. Voronoi funksjonen din må generere et 2d-array på 1024x1024 elementer/piksler. Dette arrayet sendes inn i `getImageDataFromVornoi()` og du får da ut et array med rå pikseldata til ditt `<canvas>`-element
+`index.html`inneholder boilerplate for å sette opp et canvas som vi kan bruke til å tegne på. Voronoi funksjonen din må generere et 2d-array på 1024x1024 elementer/piksler or returnere dette.
+
+Dette arrayet sendes inn i `getImageDataFromVornoi()` og du får da ut et array med rå pikseldata som vi kan sett inn i et `ImageData` element som igjen brukes av `<canvas>`. Du trenger ikke gjøre noe i `index.html`, med mindre du vil begynne å leke med fargene i voronoi diagrammet.
 
 #### 1. Generere et sett med 50 punkter:
 
@@ -23,11 +27,11 @@ Math.random();
 ```
 
 <details>
-<summary>Utvid for kodeforslag</summary>
+<summary>Utvid for kodeforslag - :warning: Prøv selv først! :warning:</summary>
 
 ```javascript
 const points = [];
-du;
+
 // generate 50 random points with an index
 for (let i = 0; i < 50; i++) {
   let x = Math.random() * 1024;
@@ -40,8 +44,8 @@ for (let i = 0; i < 50; i++) {
 
 #### 2. Distanse mellom to punkter:
 
-Lag en funksjon for å finne lengden av vektoren mellom to punkter p1 og p2:
-`Sqrt(Dot(p1-p2))`
+Lag en funksjon for å finne lengden av vektoren mellom to punkter p1 og p2:  
+Formel: `Sqrt(Dot(p1-p2))`
 
 Dotprodukt: x<sup>2</sup>+y<sup>2</sup>
 
@@ -52,7 +56,7 @@ Math.sqrt(9);
 ```
 
 <details>
-<summary>Utvid for kodeforslag</summary>
+<summary>Utvid for kodeforslag - :warning: Prøv selv først! :warning:</summary>
 
 ```javascript
 const distanceToPoint = (x1, y1, x2, y2) => {
@@ -71,7 +75,7 @@ Sett initial verdi til 1 i alle celler.
 _Utfordring:_ klarer du det uten å bruke for-loop? :clown_face:
 
 <details>
-<summary>Utvid for kodeforslag</summary>
+<summary>Utvid for kodeforslag - :warning: Prøv selv først! :warning:</summary>
 
 ```javascript
 const voronoi = Array(1024)
@@ -86,7 +90,7 @@ const voronoi = Array(1024)
 For hvert piksel må vi finne ut hvilke punkt pikselet hører til. Vi setter da en farge på pikselet basert på index verdien på punktet som pikselet hører til.
 
 <details>
-<summary>Utvid for kodeforslag</summary>
+<summary>Utvid for kodeforslag - :warning: Prøv selv først! :warning:</summary>
 
 ```javascript
 for (let x = 0; x < 1024; x++)
