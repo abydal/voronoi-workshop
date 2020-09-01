@@ -173,4 +173,4 @@ const colors = [
 ];
 ```
 
-<details>
+</details>
