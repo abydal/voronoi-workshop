@@ -12,7 +12,7 @@ Du kan skrive all koden din i `voronoi.js`
 
 ### Lykke Til! :rocket:
 
-`index.html`inneholder boilerplate for å sette opp et canvas som vi kan bruke til å tegne på. Voronoi funksjonen din må generere et 2d-array på 1024x1024 elementer/piksler or returnere dette.
+`index.html`inneholder boilerplate for å sette opp et canvas som vi kan bruke til å tegne på. Voronoi funksjonen din må generere et 2d-array på 1024x1024 elementer/piksler og returnere dette.
 
 Dette arrayet sendes inn i `getImageDataFromVornoi()` som returnerer et array med rå pikseldata som settes inn i et `ImageData` object som `<canvas>` consumerer. Du trenger ikke gjøre noe i `index.html`, med mindre du vil begynne å leke med fargene i voronoi diagrammet.
 
