@@ -32,8 +32,52 @@ const voronoi = () => {
         })
         .sort((p1, p2) => p1.d - p2.d)[0];
 
-      voronoi[x][y] = closestPoint.i / 50;
+      voronoi[x][y] = closestPoint.i;
     }
   }
   return voronoi;
 };
+
+const hexToRgb = (hex) => {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16),
+      }
+    : null;
+};
+
+const colors = [
+  "c21111",
+  "bb1419",
+  "b51621",
+  "ae192a",
+  "a71b32",
+  "a11e3a",
+  "9a2142",
+  "93234a",
+  "8c2652",
+  "86295b",
+  "7f2b63",
+  "782e6b",
+  "723073",
+  "6b337b",
+  "643683",
+  "5e388c",
+  "573b94",
+  "503e9c",
+  "4a40a4",
+  "4343ac",
+  "3c45b4",
+  "3648bd",
+  "2f4bc5",
+  "284dcd",
+  "2150d5",
+  "1b53dd",
+  "1455e5",
+  "0d58ee",
+  "075af6",
+  "005dfe",
+];

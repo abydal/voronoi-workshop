@@ -1,14 +1,11 @@
 const distanceToPoint = (x1, y1, x2, y2) => {
-  // calculate distance between points
+  // 2. Calculate distance between  two points
 };
 
 const generatePoints = (n) => {
   const points = [];
 
-  /*
-  TODO:generate n random points in the 1024x1024 plane.
-  Add the index to the point ex point: {x: 734, y: 498, i: 0}
-  */
+  // 1. Generate n random points {x, y, i} in the 1024x1024 plane where i is the index.
 
   return points;
 };
@@ -16,15 +13,17 @@ const generatePoints = (n) => {
 const voronoi = () => {
   const points = generatePoints(50);
 
-  // generate a 1024x1024 2d-array and populate with values
+  // 3. Generate a 1024x1024 2d-array and populate with values
   var voronoi = [];
 
   for (let x = 0; x < 1024; x++) {
     for (let y = 0; y < 1024; y++) {
-      //TODO: find the closest point to the pixel x,y
+      // 4. find the closest point to the pixel x,y
+      const closestPoint = {};
 
-      // set a value between 0 and 1 for coloring the pixel
-      voronoi[x][y] = closestPoint.i / 50;
+      //yout code here
+
+      voronoi[x][y] = closestPoint.i;
     }
   }
   return voronoi;
