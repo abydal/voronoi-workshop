@@ -120,6 +120,8 @@ for (let x = 0; x < 1024; x++)
 
 Klarer du å gjøre _dette_ uten å bruke for loops? :smiling_imp:
 
+---
+
 #### 5. Bonus - Klarer du å sette farge på cellene?
 
 Tips: dette er enklest å få til i funksjonen `getImageDataFromVornoi` i `index.html`
