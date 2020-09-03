@@ -5,6 +5,7 @@
     <title>Vornoi Workshop</title>
     <script src="voronoi.js"></script>
     <script type="application/javascript">
+      const numberOfPoints = 50;
       // convert voronoi pixel data to ImageData object
       const getImageDataFromVornoi = (voronoi, data) => {
         const width = 1024;
@@ -26,7 +27,7 @@
         const ctx = canvas.getContext("2d");
         let imageData = ctx.createImageData(1024, 1024);
 
-        const voronoiData = voronoi();
+        const voronoiData = voronoi(numberOfPoints);
 
         imageData.data = getImageDataFromVornoi(voronoiData, imageData.data);
 

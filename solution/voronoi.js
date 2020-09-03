@@ -5,9 +5,9 @@ const distanceToPoint = (x1, y1, x2, y2) => {
   return Math.sqrt(xl * xl + yl * yl);
 };
 
-const generatePoints = (number) => {
+const generatePoints = (n) => {
   const points = [];
-  for (let i = 0; i < number; i++) {
+  for (let i = 0; i < n; i++) {
     let x = Math.random() * 1024;
     let y = Math.random() * 1024;
     points.push({ x, y, i });
@@ -15,27 +15,47 @@ const generatePoints = (number) => {
   return points;
 };
 
-const voronoi = () => {
-  const points = generatePoints(50);
+const voronoi = (n, useForLoop = true) => {
+  const points = generatePoints(n);
 
   // generate a 1024x1024 2d-array and populate with values
   var voronoi = Array(1024)
     .fill(null)
     .map(() => Array(1024).fill(1));
 
-  for (let x = 0; x < 1024; x++) {
-    for (let y = 0; y < 1024; y++) {
-      closestPoint = points
-        .map((p) => {
-          p.d = distanceToPoint(p.x, p.y, x, y);
-          return p;
-        })
-        .sort((p1, p2) => p1.d - p2.d)[0];
+  if (useForLoop) {
+    //solution with for-loop
+    for (let x = 0; x < 1024; x++) {
+      for (let y = 0; y < 1024; y++) {
+        closestPoint = points
+          .map((p) => {
+            p.d = distanceToPoint(p.x, p.y, x, y);
+            return p;
+          })
+          .sort((p1, p2) => p1.d - p2.d)[0];
 
-      voronoi[x][y] = closestPoint.i;
+        voronoi[x][y] = closestPoint.i;
+      }
     }
+    return voronoi;
+  } else {
+    // solution without for-loop
+    return voronoi.map((row, x) =>
+      row.map(
+        (_, y) =>
+          points
+            .map((p) => {
+              return {
+                x: p.x,
+                y: p.y,
+                i: p.i,
+                d: distanceToPoint(p.x, p.y, x, y),
+              };
+            })
+            .sort((p1, p2) => p1.d - p2.d)[0].i
+      )
+    );
   }
-  return voronoi;
 };
 
 const hexToRgb = (hex) => {

@@ -10,8 +10,8 @@ const generatePoints = (n) => {
   return points;
 };
 
-const voronoi = () => {
-  const points = generatePoints(50);
+const voronoi = (n) => {
+  const points = generatePoints(n);
 
   // 3. Generate a 1024x1024 2d-array and populate with values
   var voronoi = [];
@@ -21,7 +21,7 @@ const voronoi = () => {
       // 4. find the closest point to the pixel x,y
       const closestPoint = {};
 
-      //yout code here
+      //your code here
 
       voronoi[x][y] = closestPoint.i;
     }
